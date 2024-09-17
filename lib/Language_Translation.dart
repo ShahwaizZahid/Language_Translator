@@ -17,7 +17,18 @@ class _MyLanguageTranslationPageState extends State<MyLanguageTranslationPage> {
     "Urdu",
     "Spanish",
     "French",
-    "Russian"
+    "Russian",
+    "German",
+    "Japanese",
+    "Korean",
+    "Italian",
+    "Portuguese",
+    "Turkish",
+    "Dutch",
+    "Swedish",
+    "Danish",
+    "Norwegian",
+    "Finnish"
   ];
   var originalLanguage = "From";
   var destinationLanguage = "To";
@@ -47,13 +58,35 @@ class _MyLanguageTranslationPageState extends State<MyLanguageTranslationPage> {
     } else if (language == "Chinese") {
       return "zh-cn";
     } else if (language == "Urdu") {
-      return "ur"; // Urdu language code
+      return "ur";
     } else if (language == "Spanish") {
-      return "es"; // Urdu language code
+      return "es";
     } else if (language == "French") {
-      return "fr"; // Urdu language code
+      return "fr";
     } else if (language == "Russian") {
-      return "ru"; // Urdu language code
+      return "ru";
+    } else if (language == "German") {
+      return "de"; // German language code
+    } else if (language == "Japanese") {
+      return "ja"; // Japanese language code
+    } else if (language == "Korean") {
+      return "ko"; // Korean language code
+    } else if (language == "Italian") {
+      return "it"; // Italian language code
+    } else if (language == "Portuguese") {
+      return "pt"; // Portuguese language code
+    } else if (language == "Turkish") {
+      return "tr"; // Turkish language code
+    } else if (language == "Dutch") {
+      return "nl"; // Dutch language code
+    } else if (language == "Swedish") {
+      return "sv"; // Swedish language code
+    } else if (language == "Danish") {
+      return "da"; // Danish language code
+    } else if (language == "Norwegian") {
+      return "no"; // Norwegian language code
+    } else if (language == "Finnish") {
+      return "fi"; // Finnish language code
     } else {
       return "--";
     }
@@ -94,7 +127,8 @@ class _MyLanguageTranslationPageState extends State<MyLanguageTranslationPage> {
                   onChanged: (String? newValue) {
                     setState(() {
                       originalLanguage = newValue!; // Update the selected value
-                    });
+                    },
+                    );
                   },
                 ),
                 const SizedBox(width: 40),
@@ -120,8 +154,7 @@ class _MyLanguageTranslationPageState extends State<MyLanguageTranslationPage> {
                   }).toList(),
                   onChanged: (String? newValue) {
                     setState(() {
-                      destinationLanguage =
-                          newValue!; // Update the selected value
+                      destinationLanguage = newValue!;
                     });
                   },
                 ),
@@ -155,24 +188,20 @@ class _MyLanguageTranslationPageState extends State<MyLanguageTranslationPage> {
                 },
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xff2b3c5a),
-                    foregroundColor: Colors.white,
-                  ),
-                  onPressed: () {
-                    translate(
-                        getLanguageCode(originalLanguage),
-                        getLanguageCode(destinationLanguage),
-                        languageController.text);
-                  },
-                  child: const Text("Translate")),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 10),
+            ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xff2b3c5a),
+                  foregroundColor: Colors.white,
+                ),
+                onPressed: () {
+                  translate(
+                      getLanguageCode(originalLanguage),
+                      getLanguageCode(destinationLanguage),
+                      languageController.text);
+                },
+                child: const Text("Translate")),
+            const SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.all(15.0),
               child: Text(
@@ -182,7 +211,8 @@ class _MyLanguageTranslationPageState extends State<MyLanguageTranslationPage> {
                     fontWeight: FontWeight.bold,
                     fontSize: 20),
               ),
-            )
+            ),
+
           ],
         ),
       ),
